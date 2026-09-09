@@ -21,7 +21,7 @@ def normalSum(lst):
         s += i
     return s
 
-
+#if __name__ == "__main__":
 t = time.time()
 superSum(lst)
 t = time.time() - t
@@ -43,15 +43,11 @@ print(t * 1000)
 # Q2:
 
 numbers = list(range(1, 1001))
-
 even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
 odd_numbers = list(filter(lambda x: x % 2 == 1, numbers))
 
 # 2.1
-b1 = lambda x: reduce(
-    lambda a, b: a * b,
-    even_numbers[:x]
-)
+b1 = lambda x: reduce( lambda a, b: a * b, even_numbers[:x] )
 b2 = lambda x: f(x)
 
 # 2.2
@@ -59,6 +55,7 @@ even_result = [b1(x) for x in range(1, len(even_numbers) + 1)]
 odd_result = [b2(x) for x in odd_numbers]
 
 # 2.3
+#if __name__ == "__main__":
 print(reduce(lambda x, y: x + y, even_result))
 print(reduce(lambda x, y: x + y, odd_result))
 
@@ -81,7 +78,8 @@ def range_armstrong(n1, n2):
     )
 
 # 3.c
-def armstrong_main():
+#if __name__ == "__main__":
+def mainQ3():
     try:
         n = int(input("enter number:\n"))
         if n <= 0:
@@ -110,7 +108,8 @@ def power_f(n):
 def power_map(n):
     return map(power_f, range(n))
 
-def power_main():
+#if __name__ == "__main__":
+def mainQ5():
     n = int(input("Enter number of powers:\n"))
     result = power_map(n)
     print(type(result))
@@ -149,8 +148,8 @@ def task_manager():
         "get_tasks": get_tasks,
         "complete_task": complete_task
     }
-
-def task_manager_main():
+#if __name__ == "__main__":
+def mainQ6():
     manager = task_manager()
     manager["add_task"]("Write email")
     manager["add_task"]("Shopping", "in progress")
@@ -180,7 +179,8 @@ def add_to_pipeline(pipeline_fn, new_fn):
     return lambda x: new_fn(pipeline_fn(x))
 
 # 7.c
-def pipeline_main():
+#if __name__ == "__main__":
+def mainQ7():
     pipeline = create_pipeline()
     pipeline = add_to_pipeline( pipeline, clean_spaces )
     pipeline = add_to_pipeline( pipeline, capitalize_text )
